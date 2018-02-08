@@ -4,7 +4,7 @@
   "description": "World famous simple queue service",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,5 +14,8 @@
     "joi": "^13.1.2",
     "redis": "^2.8.0",
     "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.12"
   }
 }
