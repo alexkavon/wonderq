@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const routes = require('./routes');
+const routes = require('./lib/routes');
 const port = process.env.PORT || 8080;
 
 routes(app);
