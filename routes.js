@@ -54,7 +54,8 @@ module.exports = function(app) {
 
             return res.status(200).json({
                 status: 'success',
-                message: 'Message ' + req.params.id + ' deleted'
+                message: 'Message ' + req.params.id + ' deleted',
+                message_id: req.params.id
             })
         })
     })
