@@ -17,5 +17,8 @@
   },
   "devDependencies": {
     "nodemon": "^1.14.12"
+  },
+  "nodemonConfig": {
+    "ignore": ["node_modules/", "examples/*"]
   }
 }
