@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "bin": {
-    "wq": "./wonq.js"
+    "wonq": "./wonq.js"
   },
   "dependencies": {
     "commander": "^2.14.1"
