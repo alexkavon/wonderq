@@ -12,7 +12,7 @@ module.exports = function(app) {
                 });
             }
 
-            res.status(200).json({
+            return res.status(200).json({
                 status: 'success',
                 count: data.length,
                 payload: data
@@ -36,7 +36,7 @@ module.exports = function(app) {
                 });
             }
 
-            res.status(200).json({
+            return res.status(200).json({
                 status: 'success',
                 message_id: result.id
             });
@@ -44,7 +44,7 @@ module.exports = function(app) {
     });
 
     app.delete('/messages/:id', (req, res) => {
-        wonderq.rm(req.params.id, (err) => {
+        wonderq.rm(req.params.id, (err, ok) => {
             if (err !== undefined) {
                 return res.status(400).json({
                     status: 'error',
@@ -52,7 +52,7 @@ module.exports = function(app) {
                 });
             }
 
-            res.status(200).json({
+            return res.status(200).json({
                 status: 'success',
                 message: 'Message ' + req.params.id + ' deleted'
             })
