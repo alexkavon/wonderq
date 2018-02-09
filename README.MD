@@ -86,6 +86,8 @@ Easily get all the lastest messages by sending a GET request to the following en
 
 This will return any messages waiting in the "queue" and move them over for processing (the "process" queue). These messages will then be locked for 60 seconds. If the consumer does not respond within that amount of time, WonderQ will move the message back to the queue and allow another consumer to pick it up.
 
+The locking process uses a "lock:message:<id>" expiring key to hand the locking process within redis. This uses the keyspace events to notify WonderQ when an event has expired and will reindex the event.
+
 #### Example Response
 ~~~
 {
@@ -165,3 +167,5 @@ WonderQ could be extended to have a dead letters queue which would hold any fail
 Scaling WonderQ currently depends on the scalability of NodeJS and Redis. Redis has built in clustering that could no dobut solve it's scalability problems (as well as giving Redis it's own machine(s)). While node is victim to a single process, scaling out would involve more machines/VPSes or more powerful machines/VPSes and using something like NGINX for load balancing as well as the cluster module to take advantage of multiple cores.
 
 Futhermore, WonderQ could be scaled by splitting out various pieces into microservices. One service to index/submit messages and another to consume from the queues. Splitting up the queues into "topic" (message topic) specific queues could also assist with load as well keep the queues lower. If a particular queue became consistently overwhelmed with message, you could then further split the queue into multiple "sub-queues" (for example index-queue-1, index-queue-2, index-queue-3).
+
+Finally WonderQ is built on calls to Redis and promises. WonderQ could be optimized to utilize the Redis "multi" functionality to streamline the code and processing of messages. However as some calls to redis depend on others, refactorization would be a bit of a project in itself.
