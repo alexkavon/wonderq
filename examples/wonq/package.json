@@ -1,0 +1,17 @@
+{
+  "name": "wonq",
+  "version": "1.0.0",
+  "description": "A cmd line tool for monitoring wonderq",
+  "main": "wonq.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "wq": "./wonq.js"
+  },
+  "dependencies": {
+    "commander": "^2.14.1"
+  }
+}
