@@ -4,14 +4,14 @@ const wonderq = require('../../lib/wonderq');
 
 program.version('1.0.0')
 
-program.command('list [queues...]')
+program.command('list [queues...]', 'list queues and how many keys each queue contains')
     .option('-f, --flush', 'flush the queue(s)')
     .action(listFunc);
 
-program.command('flush [queues...]')
+program.command('flush [queues...]', 'flush queues of all messages')
     .action(flushFunc);
 
-program.command('messages <queue> <n>')
+program.command('messages <queue> <n>', 'tail the last N number of messages from a queue')
     .action(messagesFunc);
 
 function listFunc(queues, cmd) {
