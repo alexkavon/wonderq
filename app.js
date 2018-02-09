@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const express = require('express');
 const app = express();
-const routes = require('./lib/routes');
+const routes = require('./routes');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 8080;
 

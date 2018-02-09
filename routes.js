@@ -1,5 +1,4 @@
-const db = require('./db')
-const wonderq = require('./wonderq')
+const wonderq = require('./lib/wonderq')
 
 module.exports = function(app) {
 
