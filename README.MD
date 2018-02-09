@@ -86,7 +86,7 @@ Easily get all the lastest messages by sending a GET request to the following en
 
 This will return any messages waiting in the "queue" and move them over for processing (the "process" queue). These messages will then be locked for 60 seconds. If the consumer does not respond within that amount of time, WonderQ will move the message back to the queue and allow another consumer to pick it up.
 
-The locking process uses a "lock:message:<id>" expiring key to hand the locking process within redis. This uses the keyspace events to notify WonderQ when an event has expired and will reindex the event.
+The locking process uses a "lock:message:[id]" expiring key to hand the locking process within redis. This uses the keyspace events to notify WonderQ when an event has expired and will reindex the event.
 
 #### Example Response
 ~~~
@@ -99,12 +99,12 @@ The locking process uses a "lock:message:<id>" expiring key to hand the locking 
 }
 ~~~
 
-### DELETE /messages/<id>
+### DELETE /messages/[id]
 
 This endpoint will allow a message to be labeled as processed and removed from the queue and remove any locks placed on the message.
 
 Simple submit a DELETE HTTP request to:
-```localhost:8080/messages/<id>```
+```localhost:8080/messages/[id]```
 
 #### Example Response
 ~~~
@@ -115,7 +115,7 @@ Simple submit a DELETE HTTP request to:
 }
 ~~~
 
-#### Message <id>
+#### Message [id]
 A message ID is a simple UUID/v4 key that allows for consumeres and producers to track which messages they've processed.
 
 ## Examples
@@ -138,12 +138,12 @@ You may tail, flush, list queues and messages using the wonQ command line tool.
 
 1. Navigate to examples/wonq
 2. npm install -g
-3. Use a wonq <command>
+3. Use a wonq [command]
 
 ### WONQ Commands
 
 Easily use a WONQ command via:
-```wonq <command> --flag```
+```wonq [command] --flag```
 
 ~~~
 list [queues...]      list queues and how many keys each queue contains
